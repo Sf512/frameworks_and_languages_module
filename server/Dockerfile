@@ -1,6 +1,11 @@
-FROM alpine
+FROM node
 
-#WORKDIR /app/
+WORKDIR /app/
 
-#COPY openapi.yml .
+COPY package.json ./
+RUN npm install
+
+COPY . .
+
+ENTRYPOINT ["node", "app.js"]
 
