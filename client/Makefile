@@ -4,4 +4,4 @@ build:
 	docker build --tag ${DOCKER_IMAGE} .
 
 test:
-	docker run --rm ${DOCKER_IMAGE}
+	docker run -p 3000:3000 --rm ${DOCKER_IMAGE}
