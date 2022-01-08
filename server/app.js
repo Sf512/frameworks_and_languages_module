@@ -13,4 +13,9 @@ app.listen(port, () => {
     console.log(`server started`)
 })
 
+app.post("/item/", function (req, res) { 
+    model.add_item(req.body)
+    res.status(201).send("ok")
+})
+
 
