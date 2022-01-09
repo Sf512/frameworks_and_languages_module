@@ -1,6 +1,7 @@
 const express = require('express')
-const {body, oneOf} = require ('express-validator')
+const {body, oneOf, validationResult} = require ('express-validator')
 const app = express()
+app.use(express.urlencoded())
 const port = 8000
 const model = require("./dataModel.js")
 
@@ -23,8 +24,14 @@ app.post("/item/",body("user_id").notEmpty(),
         body("image").isURL()
     ]),
 function (req, res) {
-    model.add_item(req.body)
-    res.status(201).send("ok")
+    if(validationResult(req).isEmpty()){
+        model.add_item(req.body)
+        res.status(201).send("ok")
+    } else {   
+        res.status(405).send("not valid")
+    }
+const result = validationResult(req);
+console.log(result.array())
 })
 
 
