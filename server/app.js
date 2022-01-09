@@ -19,8 +19,8 @@ app.post("/item/",body("user_id").notEmpty(),
     body("lat").notEmpty(),
     body("lon").notEmpty(),
     oneOf([
-        body("image").isBase64, 
-        body("image").isURL
+        body("image").isBase64(), 
+        body("image").isURL()
     ]),
 function (req, res) {
     model.add_item(req.body)
