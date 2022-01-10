@@ -6,13 +6,13 @@ exports.delete_item= function(itemId) {
     return items.delete(itemId)
 }
 exports.add_item = function(item) {
-    let itemId = Math.floor(Math.random() * 100000)
+    itemId = Math.floor(Math.random() * 100000)
     items.set(itemId,item)
 }
 exports.searchOne = function(user_id, keywords, lat, lon, radius, date_from, date_to) {
-    let result = []
+    result = []
     items.forEach (function(item){
-        let isValid= true
+    isValid= true
 
         if(item["user_id"] !=user_id && user_id != undefined) {
             isValid= false
