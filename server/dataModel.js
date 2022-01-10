@@ -1,15 +1,15 @@
-const items = new Map()
+const items = new Map() 
 exports.get_item= function(itemId) {
     return items.get(itemId)
 }
-exports.delete_item= function(itemId) {
+exports.delete_item= function(itemId) { 
     return items.delete(itemId)
 }
-exports.add_item = function(item) {
+exports.add_item = function(item) { 
     itemId = Math.floor(Math.random() * 100000)
     items.set(itemId,item)
 }
-exports.searchOne = function(user_id, keywords, lat, lon, radius, date_from, date_to) {
+exports.searchOne = function(user_id, keywords, lat, lon, radius, date_from, date_to) { 
     result = []
     items.forEach (function(item){
     isValid= true
