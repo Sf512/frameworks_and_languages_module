@@ -2,6 +2,9 @@ const items = new Map()
 exports.get_item= function(itemId) {
     return items.get(itemId)
 }
+exports.delete_item= function(itemId) {
+    return items.delete(itemId)
+}
 exports.add_item = function(item) {
     let itemId = Math.floor(Math.random() * 100000)
     items.set(itemId,item)

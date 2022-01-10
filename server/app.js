@@ -16,6 +16,15 @@ app.get('/items/', function (req, res) {
     res.status(200).send(validItems)
 })
 
+app.delete('/item/:itemId', function(req,res){
+    let delvar = model.delete_item(req.params["itemID"])
+    if(delvar){
+        res.status(200).send("ok")
+    } else {   
+        res.status(400).send("invalid itemId")
+    }
+})
+
 app.post("/item/",body("user_id").notEmpty(),
     body("keywords").notEmpty(),
     body("description").notEmpty(),
